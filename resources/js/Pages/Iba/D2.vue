@@ -1,7 +1,7 @@
 <template>
     <v-layout class="rounded rounded-md">
       <!-- Navigation Drawer with menu -->
-      <v-navigation-drawer v-model="drawer" theme="dark" class="bg-deep-purple" :clipped="true" app permanent>
+      <v-navigation-drawer v-model="drawer" theme="GREEN_THEME" class="bg-deep-purple" :clipped="true" app permanent>
         <template v-slot:prepend>
             <div class="pa-2">
                 <v-list> <v-list-item prepend-icon="mdi-firebase" title="DSPAY" value="dashboard">  </v-list-item> </v-list>  
@@ -39,9 +39,9 @@
           <div class="d-flex justify-space-around">
             <v-menu>
               <template v-slot:activator="{ props }">
-                <v-btn color="primary" width="" v-bind="props">
+                <v-btn color="primary" width="" v-bind="props" subtitle="Vuetify">
                   Asma BALDE
-                  asma@gmail.fr
+                  
                 </v-btn>
               </template>
               <v-list >
