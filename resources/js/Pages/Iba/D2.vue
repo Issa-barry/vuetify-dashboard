@@ -86,14 +86,14 @@
         { title: 'Voir profil' },
         { title: 'Déconnexion' },
       ],
-      isMobile: false, // Ajouter cette ligne pour suivre la taille de l'écran
+      isMobile: false, // Suivre la taille de l'écran
     }),
     methods: {
       toggleMenu() {
         this.drawer = !this.drawer;
       },
       checkMobileView() {
-        this.isMobile = window.innerWidth < 1264; // Détecte les tablettes et plus petites tailles
+        this.isMobile = window.innerWidth < 1264; // Détecter les tablettes et plus petites tailles
       }
     },
     mounted() {
@@ -131,7 +131,8 @@
   
   .drawer {
     background-color: white;
-    overflow-y: auto;
+    overflow-y: auto; /* Pour activer la barre de défilement verticale */
+    max-height: 100vh; /* Assurer que le contenu ne dépasse pas la hauteur de la fenêtre */
   }
   
   .shadow-drawer {
