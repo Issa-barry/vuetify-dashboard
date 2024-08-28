@@ -3,11 +3,11 @@
       <!-- Navigation Drawer with menu -->
       <v-navigation-drawer
         v-model="drawer"
-        theme="ORANGE_THEME"
-        class="drawer shadow-drawer"
         :clipped="true"
         app
-        permanent
+        :permanent="!isMobile"
+        temporary
+        class="drawer shadow-drawer"
       >
         <template v-slot:prepend>
           <div class="pl-6">
@@ -86,11 +86,22 @@
         { title: 'Voir profil' },
         { title: 'Déconnexion' },
       ],
+      isMobile: false, // Suivre la taille de l'écran
     }),
     methods: {
       toggleMenu() {
         this.drawer = !this.drawer;
+      },
+      checkMobileView() {
+        this.isMobile = window.innerWidth < 1264; // Détecter les tablettes et plus petites tailles
       }
+    },
+    mounted() {
+      this.checkMobileView();
+      window.addEventListener('resize', this.checkMobileView);
+    },
+    beforeDestroy() {
+      window.removeEventListener('resize', this.checkMobileView);
     }
   };
   </script>
@@ -120,7 +131,8 @@
   
   .drawer {
     background-color: white;
-    overflow-y: auto;
+    overflow-y: auto; /* Pour activer la barre de défilement verticale */
+    max-height: 100vh; /* Assurer que le contenu ne dépasse pas la hauteur de la fenêtre */
   }
   
   .shadow-drawer {
