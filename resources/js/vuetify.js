@@ -4,9 +4,12 @@ import { createVuetify } from 'vuetify'
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
+
 import colors from 'vuetify/util/colors'
 import '@mdi/font/css/materialdesignicons.css'; 
-
+import { BLUE_THEME, AQUA_THEME, PURPLE_THEME, GREEN_THEME, CYAN_THEME, ORANGE_THEME } from '@/theme/LightTheme';
+import { DARK_BLUE_THEME, DARK_AQUA_THEME, DARK_ORANGE_THEME,  DARK_PURPLE_THEME, DARK_GREEN_THEME, DARK_CYAN_THEME} from '@/theme/DarkTheme';
+import { VTreeview } from 'vuetify/labs/VTreeview'
 export default createVuetify({
     components,
     directives,
@@ -15,6 +18,18 @@ export default createVuetify({
       },
     theme: {
         themes: {
+            BLUE_THEME,
+            AQUA_THEME,
+            PURPLE_THEME,
+            GREEN_THEME,
+            CYAN_THEME,
+            ORANGE_THEME,
+            DARK_BLUE_THEME,
+            DARK_AQUA_THEME,
+            DARK_ORANGE_THEME,
+            DARK_PURPLE_THEME,
+            DARK_GREEN_THEME,
+            DARK_CYAN_THEME,
           light: {
             dark: false,
             colors: {
@@ -29,6 +44,8 @@ export default createVuetify({
               warning: '#FFC107', // Couleur d'avertissement (jaune)
               drawer: '#000000', // Couleur personnalisée pour le drawer (noir)
               blanche: '#ffff',
+              ver1: '#009688',
+              
             }
           },
         },

@@ -1,20 +1,40 @@
 <template>
-    <v-layout class="rounded rounded-md">
+    <v-layout class="d-flex flex-column min-h-100vh">
       <!-- Navigation Drawer with menu -->
-      <v-navigation-drawer v-model="drawer" theme="dark" class="bg-deep-purple" :clipped="true" app permanent>
+      <v-navigation-drawer
+        v-model="drawer"
+        theme="ORANGE_THEME"
+        class="drawer shadow-drawer"
+        :clipped="true"
+        app
+        permanent
+      >
         <template v-slot:prepend>
-            <div class="pa-2">
-                <v-list> <v-list-item prepend-icon="mdi-firebase" title="DSPAY" value="dashboard">  </v-list-item> </v-list>  
-            </div>
-          </template>
-
+          <div class="pl-6">
+            <v-list>
+              <v-list-item class="logo">
+                <v-list-item-content class="logo-content">
+                  <v-icon left class="icone ver1">mdi-firebase</v-icon>
+                  <v-list-item-title prepend-icon="mdi-cash-refund" class="text">DSPAY</v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </div>
+        </template>
+  
         <v-list density="compact" class="mt-14" nav>
-          <v-list-item prepend-icon="mdi-view-dashboard" title="Dashboard" value="dashboard"><template v-slot:prepend>
-            <v-icon class="icon-red">mdi-view-dashboard</v-icon>
-          </template></v-list-item>
-          <v-list-item prepend-icon="mdi-cash-refund" title="Transfert" value="transfert" ></v-list-item>
-          <v-list-item prepend-icon="mdi-cash-multiple" title="Historique" value="historique"></v-list-item>
-          <v-list-item prepend-icon="mdi-archive-marker-outline" title="Points de retrait" value="point de retrait"></v-list-item>
+          <v-list-item prepend-icon="mdi-view-dashboard" title="Dashboard" value="dashboard">
+            <template v-slot:prepend><v-icon class="icon-draw">mdi-view-dashboard</v-icon></template>
+          </v-list-item>
+          <v-list-item prepend-icon="mdi-cash-refund" title="Transfert" value="transfert">
+            <template v-slot:prepend><v-icon class="icon-draw">mdi-cash-refund</v-icon></template>
+          </v-list-item>
+          <v-list-item prepend-icon="mdi-cash-multiple" title="Historique" value="historique">
+            <template v-slot:prepend><v-icon class="icon-draw">mdi-cash-multiple</v-icon></template>
+          </v-list-item>
+          <v-list-item prepend-icon="mdi-archive-marker-outline" title="Points de retrait" value="point de retrait">
+            <template v-slot:prepend><v-icon class="icon-draw">mdi-archive-marker-outline</v-icon></template>
+          </v-list-item>
         </v-list>
   
         <template v-slot:append>
@@ -26,25 +46,21 @@
         </template>
       </v-navigation-drawer>
   
-  
-  
-  
       <!-- App Bar with the burger menu icon -->
-      <v-app-bar :order="order" color="grey-lighten-2" title="Application bar" flat>
+      <v-app-bar :order="order" color="white" flat>
         <template v-slot:prepend>
           <v-app-bar-nav-icon @click="toggleMenu"></v-app-bar-nav-icon>
         </template>
-        <template  v-slot:append>
-          <v-btn icon="mdi-magnify" class="icon-red"></v-btn> 
+        <template v-slot:append>
+          <v-btn icon="mdi-magnify" class="icon-red"></v-btn>
           <div class="d-flex justify-space-around">
             <v-menu>
               <template v-slot:activator="{ props }">
-                <v-btn color="primary" width="" v-bind="props">
+                <v-btn color="primary" v-bind="props" subtitle="Vuetify">
                   Asma BALDE
-                  asma@gmail.fr
                 </v-btn>
               </template>
-              <v-list >
+              <v-list>
                 <v-list-item v-for="(item, index) in items" :key="index" :value="index">
                   <v-list-item-title>{{ item.title }}</v-list-item-title>
                 </v-list-item>
@@ -54,7 +70,8 @@
         </template>
       </v-app-bar>
   
-      <v-main class="d-flex align-center justify-center" style="min-height: 300px">
+      <!-- Main Content Area -->
+      <v-main class="d-flex flex-column flex-grow-1 align-center justify-center main-bg">
         Bienvenue sur DSPAY
       </v-main>
     </v-layout>
@@ -66,7 +83,7 @@
       order: 0,
       drawer: true,
       items: [
-        { title: 'Voire profile' },
+        { title: 'Voir profil' },
         { title: 'Déconnexion' },
       ],
     }),
@@ -79,25 +96,43 @@
   </script>
   
   <style scoped>
-  .profile-item {
+  .min-h-100vh {
+    min-height: 100vh;
+  }
+  
+  .logo-content {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    /* align-items: center; */
-  
-    /* Assurer un alignement cohérent des éléments enfants */
-    padding: 16px;
-    /* Ajouter du padding si nécessaire pour espacer le contenu du bord du tiroir */
+    padding-left: 0px;
+    color: #28ad82;
   }
   
-  .profile-item v-avatar {
-    margin-right: 0px;
-    /* Espace entre l'avatar et le switch */
-  }
-
-  .icon-red {
-    color: red;
+  .logo-content .icone {
+    margin-right: 18px;
+    font-size: 30px;
+    color: #28ad82;
   }
   
+  .logo-content .text {
+    font-weight: 900;
+    letter-spacing: 1px;
+  }
+  
+  .drawer {
+    background-color: white;
+    overflow-y: auto;
+  }
+  
+  .shadow-drawer {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre légère à droite */
+  }
+  
+  .icon-draw {
+    color: #28ad82;
+  }
+  
+  .main-bg {
+    background-color: #e9edfa;
+  }
   </style>
+  
