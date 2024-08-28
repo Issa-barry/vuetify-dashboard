@@ -2,11 +2,19 @@
     <v-layout class="rounded rounded-md">
       <!-- Navigation Drawer with menu -->
       <v-navigation-drawer v-model="drawer" theme="dark" class="bg-deep-purple" :clipped="true" app permanent>
+        <template v-slot:prepend>
+            <div class="pa-2">
+                <v-list> <v-list-item prepend-icon="mdi-firebase" title="DSPAY" value="dashboard">  </v-list-item> </v-list>  
+            </div>
+          </template>
+
         <v-list density="compact" class="mt-14" nav>
-          <v-list-item prepend-icon="mdi-view-dashboard" title="Dashboard" value="dashboard"></v-list-item>
-          <v-list-item prepend-icon="mdi-forum" title="Transfert" value="transfert"></v-list-item>
-          <v-list-item prepend-icon="mdi-forum" title="Historique" value="historique"></v-list-item>
-          <v-list-item prepend-icon="mdi-forum" title="Points de retrait" value="point de retrait"></v-list-item>
+          <v-list-item prepend-icon="mdi-view-dashboard" title="Dashboard" value="dashboard"><template v-slot:prepend>
+            <v-icon class="icon-red">mdi-view-dashboard</v-icon>
+          </template></v-list-item>
+          <v-list-item prepend-icon="mdi-cash-refund" title="Transfert" value="transfert" ></v-list-item>
+          <v-list-item prepend-icon="mdi-cash-multiple" title="Historique" value="historique"></v-list-item>
+          <v-list-item prepend-icon="mdi-archive-marker-outline" title="Points de retrait" value="point de retrait"></v-list-item>
         </v-list>
   
         <template v-slot:append>
@@ -27,15 +35,13 @@
           <v-app-bar-nav-icon @click="toggleMenu"></v-app-bar-nav-icon>
         </template>
         <template  v-slot:append>
-          <v-btn icon="mdi-heart" class="red--text"></v-btn>
-          <v-btn icon="mdi-magnify"></v-btn>
-          <v-btn icon="mdi-dots-vertical"></v-btn>
-          <v-icon icon="$vuetify"></v-icon>
+          <v-btn icon="mdi-magnify" class="icon-red"></v-btn> 
           <div class="d-flex justify-space-around">
             <v-menu>
               <template v-slot:activator="{ props }">
                 <v-btn color="primary" width="" v-bind="props">
-                  Asma
+                  Asma BALDE
+                  asma@gmail.fr
                 </v-btn>
               </template>
               <v-list >
@@ -89,4 +95,9 @@
     margin-right: 0px;
     /* Espace entre l'avatar et le switch */
   }
+
+  .icon-red {
+    color: red;
+  }
+  
   </style>
