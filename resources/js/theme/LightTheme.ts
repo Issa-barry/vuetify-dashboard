@@ -31,8 +31,9 @@ const BLUE_THEME: ThemeTypes = {
         grey200: '#29343d',
         darkgray: '#0a2540',
         light: '#EFF4FA',
-        muted:'#526b7a'
-    }
+        muted:'#526b7a',
+    },
+    
 };
 
 const AQUA_THEME: ThemeTypes = {
@@ -206,7 +207,8 @@ const ORANGE_THEME: ThemeTypes = {
         grey200: '#29343d',
         darkgray: '#0a2540',
         light: '#EFF4FA',
-        muted:'#526b7a'
+        muted:'#526b7a',
+        
     }
 };
 
