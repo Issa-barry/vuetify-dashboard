@@ -73,6 +73,7 @@
       <!-- Main Content Area -->
       <v-main class="d-flex flex-column flex-grow-1 align-center justify-center main-bg">
         Bienvenue sur DSPAY
+        Test webhook hostinger github
       </v-main>
     </v-layout>
   </template>
