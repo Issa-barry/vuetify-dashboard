@@ -73,7 +73,21 @@
       <!-- Main Content Area -->
       <v-main class="d-flex flex-column flex-grow-1 align-center justify-center main-bg">
         Bienvenue sur DSPAY
-        Test webhook hostinger github
+         
+         <v-stepper :items="['Step 1', 'Step 2', 'Step 3']">
+  <template v-slot:item.1>
+    <v-card title="Step One" flat>...</v-card>
+  </template>
+
+  <template v-slot:item.2>
+    <v-card title="Step Two" flat>...</v-card>
+  </template>
+
+  <template v-slot:item.3>
+    <v-card title="Step Three" flat>...</v-card>
+  </template>
+</v-stepper>
+          
       </v-main>
     </v-layout>
   </template>
@@ -89,6 +103,7 @@
       ],
       isMobile: false, // Suivre la taille de l'écran
     }),
+    //fin
     methods: {
       toggleMenu() {
         this.drawer = !this.drawer;
